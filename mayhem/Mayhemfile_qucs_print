@@ -1,0 +1,11 @@
+project: savantenvs/qucs
+target: qucs-print
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/qucs-print/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_qucs_print
+    libfuzzer: true
+    timeout: 5
+    env:
+      QT_QPA_PLATFORM: offscreen
